@@ -1,0 +1,16 @@
+{
+  "giverName": "Name of the gift giver(s)",
+  "email": "email",
+  "receiverName": "Name of the gift recipient",
+  "relation": "Relationship between you",
+  "sipurellatEv": "Occasion being celebrated",
+  "ev1": "Birthday",
+  "ev2": "Wedding",
+  "ev3": "Engagement",
+  "ev4": "Bar/Bat Mitzvah",
+  "ev5": "Anniversary",
+  "ev6": "Pregnancy",
+  "ev7": "Birth",
+  "ev8": "Other",
+  "next": "Next"
+}
