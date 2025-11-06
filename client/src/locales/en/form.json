@@ -1,0 +1,19 @@
+{
+  "giverName": "Name of the gift giver(s)",
+  "email": "email",
+  "receiverName": "Name of the gift recipient",
+  "relation": "Relationship between you",
+  "sipurellatEv": "Occasion being celebrated",
+  "ev1": "Birthday",
+  "ev2": "Wedding",
+  "ev3": "Engagement",
+  "ev4": "Bar/Bat Mitzvah",
+  "ev5": "Anniversary",
+  "ev6": "Pregnancy",
+  "ev7": "Birth",
+  "ev8": "Other",
+  "next": "Next",
+  "questions": ["How do you know each other?", "What kind of couple are you? What do others say about you?", "What are your hobbies (together and individually)?", "Anything else you’d like to share? Nicknames, inside jokes, stories, quirks."],
+  "wish": "Wish",
+  "backCover": "Back Cover sentence"
+}
