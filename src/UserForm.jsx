@@ -13,7 +13,9 @@ const UserForm = () => {
   eventType: '', // from Step1
     });
 
-  const nextStep = () => setStep((s) => s + 1);
+
+
+  const nextStep = () => {setStep((s) => s + 1)};
   const prevStep = () => setStep((s) => s - 1);
 
   const handleDataChange = (data) => {

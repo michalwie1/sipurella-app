@@ -1,0 +1,51 @@
+.upload-box {
+  border: 2px dashed #bbb;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: #fafafa;
+  transition: background 0.2s;
+}
+
+.upload-box:hover {
+  background-color: #f0f8ff;
+}
+
+.preview-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.preview-item {
+  position: relative;
+}
+
+.preview-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff5555;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.limit-msg {
+  margin-top: 1rem;
+  color: #ff4444;
+}

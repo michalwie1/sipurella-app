@@ -40,6 +40,23 @@ const FormStep1 = ({ next, onData }) => {
         </div>
 
         <div>
+          <label htmlFor="relation"></label>
+          <input placeholder={t('relation')} {...register("relation")} />
+          {/* <select id="relation"  {...register("relation")} name="relation">
+           
+            <option value="" style={{display:"none"}}>{t('relation')}</option>
+            <option value="relation1">{t('relation1')}</option>
+            <option value="ev1">{t('ev2')}</option>
+            <option value="ev1">{t('ev3')}</option>
+            <option value="ev1">{t('ev4')}</option>
+            <option value="ev1">{t('ev5')}</option>
+            <option value="ev1">{t('ev6')}</option>
+            <option value="ev1">{t('ev7')}</option>
+            <option value="ev1">{t('ev8')}</option>
+        </select> */}
+        </div>
+
+        <div>
           <label htmlFor="sipurellatEv"></label>
           <select id="sipurellatEv"  {...register("sipurellatEv")} name="sipurellatEv">
            

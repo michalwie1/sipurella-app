@@ -1,66 +1,66 @@
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next';
+import { ReactMic } from 'react-mic';
+import { useState } from 'react';
+import FormQuestions from './FormQuestions';
+// import InputText from './InputText';
+// import InputRecording from './InputRecording';
+// import RecordingToggle from './RecordingToggle';
 
 
-const FormStep2 = ({ data, onData, next, back }) => {
+const FormStep2 = ({ next, back, data, onData }) => {
     const { register, handleSubmit } = useForm()
     const { t } = useTranslation('form');
     const { sipurellatEv } = data;
+
+let [recordingToggle, setRecordingToggle] = useState(true)
+const [recording, setRecording] = useState(false);
+const [audioBlob, setAudioBlob] = useState(null);
+const questions = t('questions', { returnObjects: true });
 
     const onSubmit = (data) => {
     onData(data);  
     next();       
   };
-//   return (
-//     <div>
-//       <h1>User Story Form</h1>
-//       <p>This is where the form will go ✏️</p>
-//     </div>
+
+  const onRecordingToggle = () => {
+    setRecordingToggle(!recordingToggle)
+  }
+
+
+
     return (
-    <section className="user-form2">
+      <section>
+        <form onSubmit={handleSubmit(onSubmit)}>
+        <h2>The Questions</h2>
+        {
+          questions.map((question, idx) => {
+            return (
+            <FormQuestions
+              key={idx}
+              register = {register}
+              question = {question} 
+            />)
 
-      {sipurellatEv === 'ev1'  &&
+          })
+        }
+         {/* <div className='toggle' onClick={onRecordingToggle}>
+          {`Toggle ${recordingToggle}`}
+        </div> */}
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label htmlFor="giverName"></label>
-          <input placeholder={t('giverName')} {...register("giverName")} />
-        </div>
+       {/* <div> */}
+        {/* <recordingToggle
+          recordingToggle = {recordingToggle}
+          onRecordingToggle = {onRecordingToggle} /> */}
+        {/* <label htmlFor="info1">what</label>
+        {recordingToggle ? <InputRecording /> : <InputText />}
+       </div> */}
 
-           <div>
-          <label htmlFor="email"></label>
-          <input
-            placeholder={t('email')}
-            type="email"
-            {...register("email")}
-          />
-        </div>
 
-        <div>
-          <label htmlFor="receiverName"></label>
-          <input placeholder={t('receiverName')} {...register("receiverName")} />
-        </div>
-
-        <div>
-          <label htmlFor="sipurellatEv"></label>
-          <select id="sipurellatEv" name="sipurellatEvent">
-            <option value="" style={{display:"none"}}>{t('sipurellatEv')}</option>
-            <option value="ev1">{t('ev1')}</option>
-            <option value="ev1">{t('ev2')}</option>
-            <option value="ev1">{t('ev3')}</option>
-            <option value="ev1">{t('ev4')}</option>
-            <option value="ev1">{t('ev5')}</option>
-            <option value="ev1">{t('ev6')}</option>
-            <option value="ev1">{t('ev7')}</option>
-            <option value="ev1">{t('ev8')}</option>
-        </select>
-        </div>
-     
-        <button type="submit">{t('next')}</button>
+    <button type="submit">{t('next')}</button>
       </form>
-      }
-        
-    </section>)
+    </section>
+    )
 
 };
 
