@@ -41,8 +41,16 @@ const [audioBlob, setAudioBlob] = useState(null);
         // strokeColor="#000000"
         // backgroundColor="#FF4081"
     />
-      <button onClick={() => setRecording(true)}>🎙️ התחל הקלטה</button>
-      <button onClick={() => setRecording(false)}>⏹️ עצור</button>
+      <button type="button" onClick={() => setRecording(true)}>🎙️ התחל הקלטה</button>
+      <button type="button" onClick={() => setRecording(false)}>⏹️ עצור</button>
+
+      {audioBlob && (
+        <div>
+          <p>🔊 האזנה להקלטה</p>
+          <audio controls src={audioBlob.blobURL}></audio>
+        </div>
+      )}
+
       </div>
     : 
     <div>

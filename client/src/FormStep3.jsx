@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next';
+import { submitStory } from './services/sipurella.service.js';
+
 
 
 const FormStep3 = ({ back, data, onData }) => {
@@ -8,6 +10,7 @@ const FormStep3 = ({ back, data, onData }) => {
     const { register, handleSubmit } = useForm()
     const { t } = useTranslation('form');
     const [images, setImages] = useState([]);
+    
 
     function onSubmit(data) {
     console.log(data)
@@ -34,6 +37,20 @@ const FormStep3 = ({ back, data, onData }) => {
   const removeImage = (index) => {
     setImages(images.filter((_, i) => i !== index));
   };
+
+  const handleFinalSubmit = async () => {
+  try {
+    const response = await submitStory({
+      fields: data,        // your collected form data
+      // audioFile: recordedBlob, // optional: audio blob
+    });
+
+    console.log('✅ Server response:', response);
+    // Show success or move to next screen
+  } catch (err) {
+    alert('Something went wrong 😢');
+  }
+};
 
 
     return (
@@ -102,58 +119,13 @@ const FormStep3 = ({ back, data, onData }) => {
 
 
 
-        <input type="submit" />
+        {/* <input type="submit" /> */}
+        <button onClick={handleFinalSubmit}>שליחה</button>
+
       </form>
     </section>)
 
 };
 
 export default FormStep3;
-
-
-
-// export function UserForm() {
-    
-//     const { register, handleSubmit } = useForm()
-
-//     function onSubmit(data) {
-//     console.log(data)
-//   }
-
-//     return <section className="container user-form">
-//         <h1>Form Page</h1>
-
-//       <form onSubmit={handleSubmit(onSubmit)}>
-//         <div>
-//           <label htmlFor="firstName">First Name</label>
-//           <input placeholder="bill" {...register("firstName")} />
-//         </div>
-
-//         <div>
-//           <label htmlFor="lastName">Last Name</label>
-//           <input placeholder="luo" {...register("lastName")} />
-//         </div>
-
-//         <div>
-//           <label htmlFor="isDeveloper">Is an developer?</label>
-//           <input
-//             type="checkbox"
-//             placeholder="luo"
-//             value="yes"
-//             {...register("isDeveloper")}
-//           />
-//         </div>
-
-//         <div>
-//           <label htmlFor="email">Email</label>
-//           <input
-//             placeholder="bluebill1049@hotmail.com"
-//             type="email"
-//             {...register("email")}
-//           />
-//         </div>
-//         <input type="submit" />
-//       </form>
-//     </section>
-// }
 
