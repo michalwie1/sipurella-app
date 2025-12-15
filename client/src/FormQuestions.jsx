@@ -1,11 +1,11 @@
-// import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next';
 import { ReactMic } from 'react-mic';
 import { useState } from 'react';
 // import { InputRecording } from 'Inp'
 
 
-const FormQuestions = ({ question, register, onAudioCapture }) => {
+const FormQuestions = ({ question, register }) => {
     // const { register, handleSubmit } = useForm()
     const { t } = useTranslation('form');
     // const { sipurellatEv } = data;
@@ -36,9 +36,7 @@ const [audioBlob, setAudioBlob] = useState(null);
       ? <div className='recording'>
         <ReactMic
         record={recording}
-        onStop={(blob) => {
-          setAudioBlob(blob)
-          onAudioCapture?.(blob)}}
+        onStop={(blob) => setAudioBlob(blob)}
         mimeType="audio/webm"
         // strokeColor="#000000"
         // backgroundColor="#FF4081"

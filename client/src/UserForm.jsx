@@ -7,8 +7,6 @@ import FormStep3 from './FormStep3';
 
 const UserForm = () => {
   const [step, setStep] = useState(1);
-const [recordedBlob, setRecordedBlob] = useState(null);
-const [currentStep, setCurrentStep] = useState(1);
 //   const [formData, setFormData] = useState({});
 
   const [formData, setFormData] = useState({
@@ -27,8 +25,8 @@ const [currentStep, setCurrentStep] = useState(1);
   return (
     <>
       {step === 1 && <FormStep1 next={nextStep} onData={handleDataChange} />}
-      {step === 2 && <FormStep2 next={nextStep} back={prevStep} data={formData} onData={handleDataChange} setRecordedBlob={setRecordedBlob} />}
-      {step === 3 && <FormStep3 back={prevStep} data={formData} onData={handleDataChange} recordedBlob={recordedBlob} />}
+      {step === 2 && <FormStep2 next={nextStep} back={prevStep} data={formData} onData={handleDataChange} />}
+      {step === 3 && <FormStep3 back={prevStep} data={formData} onData={handleDataChange} />}
     </>
   );
 };
