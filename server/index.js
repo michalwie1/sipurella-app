@@ -1,4 +1,4 @@
-const { transcribeAudio } = require('./transcribeAudio');
+const { transcribeAudio } = require('./services/transcribeAudio');
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
