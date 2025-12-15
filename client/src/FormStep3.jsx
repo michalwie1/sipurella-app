@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next';
 import { submitStory } from './services/sipurella.service.js';
+import { useNavigate } from 'react-router-dom';
 
 
 
-const FormStep3 = ({ back, data, onData }) => {
+
+const FormStep3 = ({ back, data, onData, recordedBlob }) => {
 
     const { register, handleSubmit } = useForm()
     const { t } = useTranslation('form');
     const [images, setImages] = useState([]);
-    
+    const navigate = useNavigate();
+
 
     function onSubmit(data) {
     console.log(data)
@@ -41,11 +44,13 @@ const FormStep3 = ({ back, data, onData }) => {
   const handleFinalSubmit = async () => {
   try {
     const response = await submitStory({
-      fields: data,        // your collected form data
+      fields: data,  
+      audioBlob: recordedBlob,      // your collected form data
       // audioFile: recordedBlob, // optional: audio blob
     });
 
     console.log('✅ Server response:', response);
+    navigate('/confirmation')
     // Show success or move to next screen
   } catch (err) {
     alert('Something went wrong 😢');

@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next';
-import { ReactMic } from 'react-mic';
+// import { ReactMic } from 'react-mic';
 import { useState } from 'react';
 import FormQuestions from './FormQuestions';
 // import InputText from './InputText';
@@ -8,14 +8,15 @@ import FormQuestions from './FormQuestions';
 // import RecordingToggle from './RecordingToggle';
 
 
-const FormStep2 = ({ next, back, data, onData }) => {
+const FormStep2 = ({ next, back, data, onData, setRecordedBlob }) => {
     const { register, handleSubmit } = useForm()
     const { t } = useTranslation('form');
-    const { sipurellatEv } = data;
+
+    // const { sipurellatEv } = data;
 
 let [recordingToggle, setRecordingToggle] = useState(true)
-const [recording, setRecording] = useState(false);
-const [audioBlob, setAudioBlob] = useState(null);
+// const [recording, setRecording] = useState(false);
+// const [audioBlob, setAudioBlob] = useState(null);
 const questions = t('questions', { returnObjects: true });
 
     const onSubmit = (data) => {
@@ -40,6 +41,7 @@ const questions = t('questions', { returnObjects: true });
               key={idx}
               register = {register}
               question = {question} 
+              onAudioCapture={(blob) => setRecordedBlob(blob)}
             />)
 
           })
