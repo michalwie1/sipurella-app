@@ -2,7 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 const FormData = require('form-data');
 
-const OPENAI_API_KEY = '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'; // replace with env var later!
+const OPENAI_API_KEY = 'aaa'
 
 async function transcribeAudio(filePath) {
   const formData = new FormData();
